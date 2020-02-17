@@ -12,6 +12,18 @@ var maze = [
   ["■"," ","N","■","K"," "," "," ","■"],
   ["■","■","■","■","■","■","■","■","■"],
 ]
+var visited = [ 
+   [false,false,false,false,false,false,false,false,false],
+   [false,false,false,false,false,false,false,false,false],
+   [false,false,false,false,false,false,false,false,false],
+   [false,false,false,false,false,false,false,false,false],
+   [false,false,false,false,false,false,false,false,false],
+   [false,false,false,false,false,false,false,false,false],
+   [false,false,false,false,false,false,false,false,false],
+   [false,false,false,false,false,false,false,false,false],
+   [false,false,false,false,false,false,false,false,false],
+   [false,false,false,false,false,false,false,false,false]
+]
 //B: To enter you must have battled the 2 Guardians
 //⚔: you have found a SWORD!
 //N: You must have the Sword to fight this Ninja, if not, you die.
@@ -24,6 +36,25 @@ y = 1
 hasMagicBook = false
 hasSword = false
 
+function showMaze (){
+  var i; var j
+  for (i = 0; i < maze.length; i++) {
+    var line = ""
+    for (j = 0; j < maze[i].length; j++) {
+      if (visited[i][j]) {
+        var cell = maze[i][j]
+        if (cell == " ") {
+          cell = "🦶"
+        }
+        line = line+cell
+      }
+      else {
+        line = line+ " "
+      }
+    }
+    console.log (line)
+  }
+}
 const readline = require('readline');
 
 readline.emitKeypressEvents(process.stdin);
@@ -51,8 +82,11 @@ process.stdin.on('keypress', (str, key) => {
     newX = x + 1
     newY = y
   }
+visited[newY][newX] = true
+
   if (maze [newY][newX] == "■"){
     console.log ("you hit a wall")
+    showMaze ()
     return
   }
   x = newX
@@ -69,6 +103,7 @@ process.stdin.on('keypress', (str, key) => {
       console.log ("🕮you win the fight!⚔")
     } else{
       console.log ("you're dead")
+      showMaze ()
       process.exit(1);
     }
   }
@@ -83,7 +118,10 @@ process.stdin.on('keypress', (str, key) => {
       console.log ("🕮you win the magic fight!⚔")
     } else{
       console.log ("🕮you're dead⚔")
+      showMaze ()
       process.exit(1);
     }
   }
+  visited [y][x] = true
+  showMaze ()
 })
