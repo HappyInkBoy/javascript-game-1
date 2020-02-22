@@ -63,6 +63,11 @@ function showMaze (){
     console.log (line)
   }
 }
+  
+document.body.onkeypress = function(event){
+  console.log(event)
+};
+/*  
 const readline = require('readline');
 
 readline.emitKeypressEvents(process.stdin);
@@ -133,6 +138,7 @@ visited[newY][newX] = true
   visited [y][x] = true
   showMaze ()
 })
+*/
 </script>
 
 </body>
