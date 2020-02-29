@@ -63,8 +63,12 @@ function showMaze (){
   }
 }
 function showMaze2 (){
+  
+  var table = document.createElement('table');
+  var tableBody = document.createElement('tbody');
   var i; var j
   for (i = 0; i < maze.length; i++) {
+    var row = document.createElement('tr');
     var line = ""
     for (j = 0; j < maze[i].length; j++) {
       if (visited[i][j]) {
@@ -73,31 +77,17 @@ function showMaze2 (){
           cell = "🦶"
         }
         line = line+cell
+        var tcell = document.createElement('td');
+        tcell.appendChild(document.createTextNode(cell));
+        row.appendChild(tcell);
       }
       else {
         line = line+ " "
       }
     }
-    createTable([["row 1, cell 1", "row 1, cell 2"], ["row 2, cell 1", "row 2, cell 2"]]);
+    tableBody.appendChild(row);
     console.log (line)
   }
-}
-  function createTable(tableData) {
-  var table = document.createElement('table');
-  var tableBody = document.createElement('tbody');
-
-  tableData.forEach(function(rowData) {
-    var row = document.createElement('tr');
-
-    rowData.forEach(function(cellData) {
-      var cell = document.createElement('td');
-      cell.appendChild(document.createTextNode(cellData));
-      row.appendChild(cell);
-    });
-
-    tableBody.appendChild(row);
-  });
-
   table.appendChild(tableBody);
   document.body.appendChild(table);
 }
