@@ -43,6 +43,8 @@ x = 1
 y = 1
 hasMagicBook = false
 hasSword = false
+table = document.createElement('table');
+
 function showMaze (){
   var i; var j
   for (i = 0; i < maze.length; i++) {
@@ -64,7 +66,6 @@ function showMaze (){
 }
 function showMaze2 (){
   
-  var table = document.createElement('table');
   var tableBody = document.createElement('tbody');
   var i; var j
   for (i = 0; i < maze.length; i++) {
@@ -88,6 +89,7 @@ function showMaze2 (){
     tableBody.appendChild(row);
     console.log (line)
   }
+  table.innerHTML = '';
   table.appendChild(tableBody);
   document.body.appendChild(table);
 }
