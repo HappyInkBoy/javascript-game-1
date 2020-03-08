@@ -75,7 +75,11 @@ function showMaze2 (){
       if (visited[i][j]) {
         var cell = maze[i][j]
         if (cell == " ") {
-          cell = "🦶"
+          if (i == x && j == y) {
+            cell = "🔻"
+          } else {
+            cell = "🦶"
+          } 
         }
         line = line+cell
         var tcell = document.createElement('td');
