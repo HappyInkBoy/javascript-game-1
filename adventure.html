@@ -62,25 +62,6 @@ hasSword = false
 table = document.createElement('table');
 
 function showMaze (){
-  var i; var j
-  for (i = 0; i < maze.length; i++) {
-    var line = ""
-    for (j = 0; j < maze[i].length; j++) {
-      if (visited[i][j]) {
-        var cell = maze[i][j]
-        if (cell == " ") {
-          cell = "🦶"
-        }
-        line = line+cell
-      }
-      else {
-        line = line+ " "
-      }
-    }
-    console.log (line)
-  }
-}
-function showMaze2 (){
   
   var tableBody = document.createElement('tbody');
   var i; var j
@@ -99,7 +80,7 @@ function showMaze2 (){
         }
         line = line+cell
         var tcell = document.createElement('td');
-         if (i == x && j == y){
+         if (i == y && j == x){
            tcell.className = "active"
          }
         tcell.appendChild(document.createTextNode(cell));
@@ -138,15 +119,15 @@ document.onkeydown = function(event){
     newX = x + 1
     newY = y
   }
-  visited[newY][newX] = true
+  x = newX
+  y = newY
+  visited[y][x] = true
 
-  if (maze [newY][newX] == "■"){
+  if (maze [y][x] == "■"){
     console.log ("you hit a wall")
     showMaze ()
     return
   }
-  x = newX
-  y = newY
   if (maze [y][x] == "⚔"){
     console.log ("you found a SWORD")
     hasSword = true 
@@ -178,8 +159,7 @@ document.onkeydown = function(event){
       process.exit(1);
     }
   }
-  visited [y][x] = true
-  showMaze2 ()
+  showMaze ()
 }
 </script>
 
