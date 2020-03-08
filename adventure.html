@@ -9,6 +9,9 @@ p {color:green}
        table, th, td {
   border: 1px solid black;
 }
+        .active {
+           border: 2px solid red;
+        }
 </style>
 
 
@@ -96,6 +99,9 @@ function showMaze2 (){
         }
         line = line+cell
         var tcell = document.createElement('td');
+         if (i == x && j == y){
+           tcell.className = "active"
+         }
         tcell.appendChild(document.createTextNode(cell));
         row.appendChild(tcell);
       }
