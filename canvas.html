@@ -3,31 +3,25 @@
    <head>
      <style>
 body {background-color:lightgray}
-h1 {color:blue}
-p {color:green}
-       table {
-          color:white;
-          table-layout: fixed;
-          width: 500px;
-        }
-       td {
-          border: 1px solid black;
-          width: 50px;
-       }
-       .active {
-           background-color: orange
-        }
+
 </style>
 
 
   </head>
    <body>
 
-<h1>My first adventure game</h1>
+<h1>My first painting game</h1>
 
 <p>Alex.</p>
 <script>
+canvas = document.createElement("CANVAS");
+   canvas.width = 1000
+   canvas.height = 500
+   var ctx = canvas.getContext("2d");
+ctx.fillStyle = "blue";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+     document.body.appendChild(canvas);
 </script>
 
 </body>
