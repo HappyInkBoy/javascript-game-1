@@ -14,6 +14,10 @@ body {background-color:lightgray}
 
 <p>Alex.</p>
 <script>
+   x = 500
+   y = 250
+   newX = x
+   newY = y
 canvas = document.createElement("CANVAS");
    canvas.width = 1000
    canvas.height = 500
@@ -22,6 +26,36 @@ ctx.fillStyle = "blue";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
      document.body.appendChild(canvas);
+   document.onkeydown = function(event){
+  console.log(event)
+  if ( event.key == "ArrowUp"){
+    console.log ("you are going up")
+    newY = y - 1
+    newX = x 
+  }
+  if (event.key == "ArrowDown"){
+    console.log ("you are going down")
+    newY = y + 1
+    newX = x
+  }
+  if (event.key == "ArrowLeft"){
+    console.log ("you are going left")
+    newX = x - 1
+    newY = y
+  }
+  if (event.key == "ArrowRight"){
+    console.log ("you are going right")
+    newX = x + 1
+    newY = y
+  }
+      ctx.strokeStyle = "black";
+      ctx.beginPath();
+ctx.moveTo(x, y);
+      ctx.lineTo(newX,newY);
+      ctx.stroke();
+      x = newX
+      y = newY
+ }
 </script>
 
 </body>
