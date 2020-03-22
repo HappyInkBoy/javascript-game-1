@@ -51,9 +51,11 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
       if ( event.key == "NumpadAdd"){
          thick = thick + 5
+         console.log ("thickness" + thick)
       }
       if ( event.key == "NumpadSubtract"){
          thick = thick -5 
+         console.log ("thickness" + thick)
          if (thick <= 0 ){
             thick = 1
          }
