@@ -18,6 +18,7 @@ body {background-color:lightgray}
    y = 250
    newX = x
    newY = y
+   thick = 5
 canvas = document.createElement("CANVAS");
    canvas.width = 1000
    canvas.height = 500
@@ -48,8 +49,18 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
     newX = x + 1
     newY = y
   }
+      if ( event.key == "NumpadAdd"){
+         thick = thick + 5
+      }
+      if ( event.key == "NumpadSubtract"){
+         thick = thick -5 
+         if (thick <= 0 ){
+            thick = 1
+         }
+         
       ctx.strokeStyle = "black";
       ctx.beginPath();
+         ctx.lineWidth = thick;
 ctx.moveTo(x, y);
       ctx.lineTo(newX,newY);
       ctx.stroke();
