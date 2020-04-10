@@ -27,6 +27,9 @@ ctx.fillStyle = "blue";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
      document.body.appendChild(canvas);
+   document.onmousedown = function(event){
+      console.log (event)
+   }
    document.onkeydown = function(event){
   console.log(event)
   if ( event.key == "ArrowUp"){
