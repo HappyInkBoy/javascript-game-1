@@ -27,14 +27,14 @@ ctx.fillStyle = "blue";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
      document.body.appendChild(canvas);
-   document.onmousedown = function(event){
+   canvas.onmousedown = function(event){
       console.log (event)
-      x = event.x
-      y = event.y
+      x = event.offsetX
+      y = event.offsetY
       console.log (x)
       console.log (y)
    }
-   canvas.onkeydown = function(event){
+   document.onkeydown = function(event){
   console.log(event)
   if ( event.key == "ArrowUp"){
     console.log ("you are going up")
